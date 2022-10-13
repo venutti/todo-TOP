@@ -1,0 +1,24 @@
+{
+  "name": "todo-top",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "webpack",
+    "webpack:watch" : "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venutti/todo-TOP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/venutti/todo-TOP/issues"
+  },
+  "homepage": "https://github.com/venutti/todo-TOP#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

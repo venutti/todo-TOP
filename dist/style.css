@@ -1,0 +1,47 @@
+:root {
+  --primary: #F9ED69;
+  --secondary: #F08A5D;
+  --pink: #B83B5E;
+  --violet: #6A2C70;
+  --white: #FFFFFF;
+
+  --spacing-md: 1rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.button {
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+  border-radius: 20px;
+  padding: var(--spacing-md);
+}
+.button:hover {
+  filter: brightness(0.7);
+}
+
+.header {
+  background: linear-gradient(324deg, var(--primary) 0%, var(--secondary) 100%);
+  color: var(--white);
+  padding: var(--spacing-md);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.sidebar {
+  background-color: var(--pink);
+}
