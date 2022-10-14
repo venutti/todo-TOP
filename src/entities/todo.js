@@ -6,13 +6,19 @@ export default class Todo {
     this.priority = data.priority;
     this.completed = false;
   };
-  complete() {
-    this.completed = true;
+  toggleComplete() {
+    this.completed = !this.completed;
   };
   changePriority(newPriority) {
     this.priority = newPriority;
   };
   isCompleted() {
     return this.completed;
+  };
+  edit(newData) {
+    this.title = newData.title;
+    this.description = newData.description;
+    this.dueDate = newData.dueDate;
+    this.priority = newData.priority;
   };
 };

@@ -8,7 +8,7 @@
   <title>Lista de Tareas</title>
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
-  <script type="module" src="../src/index.js" defer></script>
+  <script type="module" src="./src/index.js" defer></script>
 </head>
 
 <body>
@@ -19,11 +19,50 @@
     <div class="sidebar">
       <div class="all-proyects"></div>
       <button data-id="new-proyect" class="button">+ PROYECTO</button>
+      <div class="dinamic-input">
+        <input type="text" placeholder="Nombre del proyecto">
+        <div class="buttons">
+          <button class="button cancel">Cancelar</button>
+          <button class="button submit">Añadir</button>
+        </div>
+      </div>
     </div>
-    <div class="container">
-      <div class="all-todos"></div>
-    </div>
-    
+    <div class="all-todos"></div>
+  </div>
+  <div class="overlay"></div>
+  <div class="modal" id="modal-add-todo">
+    <form>
+      <h2>Nueva tarea</h2>
+      <fieldset>
+        <input type="text" id="todo-title" name="todo-title" required placeholder="Título">
+      </fieldset>
+      <fieldset>
+        <input type="text" id="todo-description" name="todo-description" placeholder="Descripción">
+      </fieldset>
+      <fieldset>
+        <label for="todo-duedate">Fecha de expiración</label>
+        <input type="date" id="todo-duedate" name="todo-duedate" required placeholder="Fecha de expiración">
+      </fieldset>
+      <fieldset>
+        <p>¿Qué prioridad tiene la tarea?</p>
+        <div class="priority-option">
+          <input type="radio" name="priority" id="low-prior" value="low-prior">
+          <label for="low-prior">Baja</label>
+        </div>
+        <div class="priority-option">
+          <input type="radio" name="priority" id="med-prior" value="med-prior">
+          <label for="med-prior">Media</label>
+        </div>
+        <div class="priority-option">
+          <input type="radio" name="priority" id="high-prior" value="high-prior">
+          <label for="high-prior">Alta</label>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button class="button cancel" type="button">Cancelar</button>
+        <button class="button submit" type="submit">Confirmar</button>
+      </div>
+    </form>
   </div>
 </body>
 

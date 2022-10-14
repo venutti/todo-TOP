@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap');
+/*font-family: 'Fuzzy Bubbles', cursive;*/
 :root {
   --primary: #F9ED69;
   --secondary: #F08A5D;
   --pink: #B83B5E;
+  --pink-light: #f095af;
   --violet: #6A2C70;
+  --violet-light: #ae6db4;
   --white: #FFFFFF;
+  --grey: #b1aeae;
 
+  --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
+  --spacing-xl: 3rem;
+
+  --shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  --inset-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 *, *::before, *::after {
@@ -20,20 +31,29 @@ html, body {
 body {
   display: grid;
   grid-template-rows: auto 1fr;
+  font-family: 'Nunito', sans-serif;
 }
 .button {
+  display: block;
+  width: 90%;
+  margin: 0  auto;
   border: none;
   cursor: pointer;
-  background-color: inherit;
+  background-color: var(--pink);
   border-radius: 20px;
   padding: var(--spacing-md);
+  text-align: center;
+  box-shadow: var(--shadow);
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
-.button:hover {
-  filter: brightness(0.7);
+.button:active {
+  box-shadow: var(--inset-shadow);
 }
 
 .header {
-  background: linear-gradient(324deg, var(--primary) 0%, var(--secondary) 100%);
+  /*background: linear-gradient(324deg, var(--primary) 0%, var(--secondary) 100%);*/
+  background-color: var(--violet);
   color: var(--white);
   padding: var(--spacing-md);
 }
@@ -43,5 +63,152 @@ body {
   grid-template-columns: 1fr 3fr;
 }
 .sidebar {
-  background-color: var(--pink);
+  background-color: var(--violet-light);
+  padding: var(--spacing-sm);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+.icon-status {
+  background-image: url("./img/radio_button_unchecked.svg");
+}
+.icon-delete {
+  background-image: url("./img/delete.svg");
+}
+.icon-task {
+  background-image: url("./img/list.svg");
+}
+
+.all-todos h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+.all-todos .button {
+  margin-top: var(--spacing-md);
+}
+
+.todo {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  text-transform: uppercase;
+  padding: var(--spacing-sm) var(--spacing-xl);
+}
+.todo:nth-of-type(2n) {
+  background-color: var(--primary);
+}
+.todo:nth-of-type(2n+1) {
+  background-color: var(--secondary);
+}
+.todo.completed .icon-status {
+  background-image: url("./img/check_circle.svg");
+}
+.todo.completed {
+  filter: brightness(0.6);
+}
+.todo p {
+  flex-grow: 1;
+}
+
+.proyect {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  padding: var(--spacing-md);
+  background-color: var(--violet-light);
+}
+.proyect:hover {
+  filter: brightness(0.8);
+}
+.proyect p {
+  flex-grow: 1;
+  font-size: 1.3rem;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.55);
+}
+.modal {
+  position: absolute;
+  width: 40%;
+  background-color: var(--white);
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-md);
+  border-radius: 20px;
+}
+.dinamic-input,
+.modal,
+.overlay {
+  display: none;
+}
+.dinamic-input.active,
+.modal.active,
+.overlay.active {
+  display: block;
+}
+#modal-add-todo h2 {
+  font-size: 1.5rem;
+}
+#modal-add-todo fieldset {
+  border: none;
+  padding: var(--spacing-sm);
+}
+.dinamic-input input,
+#modal-add-todo input {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-sm);
+  border-radius: 10px;
+  border: 2px solid var(--grey);
+  outline: none;
+  font-size: 1rem;
+}
+#modal-add-todo input:focus {
+  color: black;
+  border: 2px solid var(--secondary);
+}
+#modal-add-todo .priority-option {
+  margin-left: var(--spacing-md);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+#modal-add-todo .priority-option input {
+  width: 20px;
+  height: 20px;
+}
+.dinamic-input .buttons,
+#modal-add-todo .buttons {
+  display: flex;
+  gap: var(--spacing-md);
+}
+.dinamic-input .buttons .cancel,
+#modal-add-todo .buttons .cancel {
+  background-color: var(--grey);
+}
+#modal-add-todo .buttons .submit {
+  color: var(--white);
+  background-color: var(--violet);
+}
+
+.dinamic-input {
+  width: 90%;
+  margin: var(--spacing-sm) auto;
+}
+.dinamic-input .buttons {
+  margin-top: var(--spacing-sm);
 }
