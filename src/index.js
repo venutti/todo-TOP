@@ -1,5 +1,5 @@
-import ProyectOrganizer from './organizer.js';
+import ProyectOrganizer from "./organizer.js";
 
-let myOrganizer = new ProyectOrganizer();
+const myOrganizer = new ProyectOrganizer();
 myOrganizer.initialize();
-myOrganizer.addNewProyect('Mis tareas', true);
+myOrganizer.addNewProyect("Mis tareas", true);
